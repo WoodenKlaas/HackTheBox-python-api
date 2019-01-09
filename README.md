@@ -7,8 +7,8 @@ This API is still in development, because not all of HackTheBox' api is exposed
 ```
 import hackthebox
 
-api_token = '1234'
-HTB = hackthebox.HackTheBox(api_token)
+API_TOKEN = '1234'
+HTB = hackthebox.HackTheBox(API_TOKEN)
 ```
 
 ## Getting a user id from username
@@ -16,8 +16,8 @@ To use this functionality, you need to initialize with your API token
 ```
 import hackthebox
 
-api_token = '1234'
-HTB = hackthebox.HackTheBox(api_token)
+API_TOKEN = '1234'
+HTB = hackthebox.HackTheBox(API_TOKEN)
 user_id = HTB.get_user_id('QHpix')
 
 
@@ -29,8 +29,8 @@ The maximum is top100
 ```
 import hackthebox
 
-api_token = '1234'
-HTB = hackthebox.HackTheBox(api_token)
+API_TOKEN = '1234'
+HTB = hackthebox.HackTheBox(API_TOKEN)
 
 top10 = HTB.get_top(10)
 top50 = HTB.get_top(50)
@@ -40,8 +40,32 @@ top50 = HTB.get_top(50)
 ```
 import hackthebox
 
-api_token = '1234'
-HTB = hackthebox.HackTheBox(api_token)
+API_TOKEN = '1234'
+HTB = hackthebox.HackTheBox(API_TOKEN)
 
 machines = HTB.get_machines_total()
 ```
+
+## Get owns
+```
+import hackthebox
+
+API_TOKEN = '1234'
+HTB = hackthebox.HackTheBox(API_TOKEN)
+
+roots = HTB.get_owns('roots')
+users = HTB.get_owns('users')
+```
+
+## Get machine status
+```
+import hackthebox
+
+API_TOKEN = '1234'
+HTB = hackthebox.HackTheBox(API_TOKEN)
+
+vpn = '1'
+machine_id = 3
+status = HTB.get_status(vpn, machine_id)
+```
+
