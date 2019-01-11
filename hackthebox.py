@@ -28,14 +28,16 @@ class HackTheBox:
 
         if amount > 100:
             return None
-        
-        soup = BeautifulSoup(requests.get('https://www.hackthebox.eu/#hofTab').text,'html.parser')
-        top10 = {}
+
+        url = 'https://www.hackthebox.eu/api/charts/users/scores/?api_token={}'.format(self.API_TOKEN)
+        r = requests.get(url).text
+        data = json.loads(r)['chartData']
+        topX = {}
 
         for i in range(1, amount+1):
-            top10[i] = soup.find_all('tr')[i].find_all('td')[1].text
+            topX[i] = data[0]['name']
 
-        return top10
+        return topX
 
     def get_userid(self, username):
         '''
