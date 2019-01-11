@@ -74,7 +74,7 @@ class HackTheBox:
         Get the status of a machine on a vpn server
         '''
 
-        url = 'https://www.hackthebox.eu/api/machiines/vpnping/{}?api_token={}'.format(vpn, self.API_TOKEN)
+        url = 'https://www.hackthebox.eu/api/machines/vpnping/{}?api_token={}'.format(vpn, self.API_TOKEN)
         r = requests.post(url,params={'id':machine_id}).text
         status = json.loads(r)['status']
 
