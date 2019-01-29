@@ -79,3 +79,12 @@ class HackTheBox:
         status = json.loads(r)['status']
 
         return status
+    def get_machine(self,machine_id):
+        '''
+        Get a machine by id
+        '''
+
+        url = 'https://www.hackthebox.eu/api/machines/get/{}'.format(machine_id)
+        r = requests.get(url,params={'api_token':self.API_TOKEN}).text
+        return json.loads(r)
+
